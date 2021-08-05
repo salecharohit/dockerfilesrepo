@@ -1,0 +1,15 @@
+**/target/
+**/.project
+**/.settings
+.vagrant
+ubuntu-bionic-18.04-cloudimg-console.log
+.vscode
+*.log
+*.DS_Store
+**/.classpath
+**/.gradle
+**/build
+**/bin
+**/myenv
+**/*.sqlite3
+**/__pycache__

@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: struts2maven
+  name: struts2maven
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: struts2maven
+  template:
+    metadata:
+      labels:
+        app: struts2maven
+    spec:
+      containers:
+      - image: salecharohit/struts2maven
+        name: struts2maven
+        ports:
+        - containerPort: 8090
+        securityContext:
+          allowPrivilegeEscalation: false
+          capabilities:
+            drop: ["SETUID", "SETGID"]
+      serviceAccountName: ""
+      automountServiceAccountToken: false

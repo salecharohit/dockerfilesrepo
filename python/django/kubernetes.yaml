@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: pythondjango
+  name: pythondjango
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pythondjango
+  template:
+    metadata:
+      labels:
+        app: pythondjango
+    spec:
+      containers:
+      - image: salecharohit/pythondjango
+        name: pythondjango
+        ports:
+        - containerPort: 5000
+        securityContext:
+          allowPrivilegeEscalation: false
+          capabilities:
+            drop: ["SETUID", "SETGID"]
+      serviceAccountName: ""
+      automountServiceAccountToken: false

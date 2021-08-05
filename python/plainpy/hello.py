@@ -1,0 +1,1 @@
+print ("Hello World from Python running in Docker on Alpine OS")

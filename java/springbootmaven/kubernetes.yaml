@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: springbootmaven
+  name: springbootmaven
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: springbootmaven
+  template:
+    metadata:
+      labels:
+        app: springbootmaven
+    spec:
+      containers:
+      - image: salecharohit/springbootmaven
+        name: springbootmaven
+        ports:
+        - containerPort: 8080
+        securityContext:
+          allowPrivilegeEscalation: false
+          capabilities:
+            drop: ["SETUID", "SETGID"]
+      serviceAccountName: ""
+      automountServiceAccountToken: false

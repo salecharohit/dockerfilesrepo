@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: springbootgradle
+  name: springbootgradle
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: springbootgradle
+  template:
+    metadata:
+      labels:
+        app: springbootgradle
+    spec:
+      containers:
+      - image: salecharohit/springbootgradle
+        name: springbootgradle
+        ports:
+        - containerPort: 8080
+        securityContext:
+          allowPrivilegeEscalation: false
+          capabilities:
+            drop: ["SETUID", "SETGID"]
+      serviceAccountName: ""
+      automountServiceAccountToken: false

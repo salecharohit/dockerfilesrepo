@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: pythonflask
+  name: pythonflask
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pythonflask
+  template:
+    metadata:
+      labels:
+        app: pythonflask
+    spec:
+      containers:
+      - image: salecharohit/pythonflask
+        name: pythonflask
+        ports:
+        - containerPort: 5000
+        securityContext:
+          allowPrivilegeEscalation: false
+          capabilities:
+            drop: ["SETUID", "SETGID"]
+      serviceAccountName: ""
+      automountServiceAccountToken: false
