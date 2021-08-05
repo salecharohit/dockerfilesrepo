@@ -15,7 +15,7 @@ public class HelloWorld extends ActionSupport {
 
    @Action(value = "HelloWorld", results = { @Result(name = "result", location = "/success.jsp") })
    public String execute() {
-      setMessage("Hello " + getName());
+      setMessage("Hello World" + getName());
       return "result";
    }
 

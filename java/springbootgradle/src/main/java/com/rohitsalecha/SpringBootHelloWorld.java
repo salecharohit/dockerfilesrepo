@@ -8,7 +8,7 @@ public class SpringBootHelloWorld {
  
     @RequestMapping("/")
     String home() {
-        return "Hello World From Spring Boot Build Using Gradle on Alpine OS";
+        return "Hello World From Spring Boot Build Using Gradle on Alpine OS!";
     }
  
     public static void main(String[] args) throws Exception {
